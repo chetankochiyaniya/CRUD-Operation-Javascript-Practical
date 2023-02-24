@@ -1,0 +1,32 @@
+:root{
+    --bgcolor : #0b163f;
+    --btncolor : #0d6efd;
+    --textcolor: #ffffff;
+}
+body{
+    background-color: var(--bgcolor);
+}
+@media (max-width:576px){
+    .card{
+        max-width: 90% !important;
+    }
+}
+h1{
+    justify-content: center;
+}
+button{
+    border: none;
+    border-radius: 15px;
+    padding: 5px 10px;
+}
+.fa{
+    font-size: 28px;
+    color: black;
+}
+.edit_btn{
+    background-color: var(--btncolor);
+    color: var(--textcolor);
+}
+th, td{
+padding: 10px;
+}

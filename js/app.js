@@ -10,6 +10,7 @@ const main = `
 const routes = {
   '#': main,
   '/': main,
+  '/index.html': main,
 };
 
 rootDiv.innerHTML = routes[window.location.pathname];
