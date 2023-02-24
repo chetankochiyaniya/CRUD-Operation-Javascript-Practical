@@ -1,5 +1,16 @@
 const table =`
 <div class="table-responsive">
+<div class="container card rounded-4 p-3 mb-3">
+<div class="row d-flex">
+<div class="col-lg-6">
+<input type="text" placeholder="serch box"> 
+</div>
+<div class="d-flex col-lg-6 justify-content-end">
+<button class="btn_color"> Add new Product</button>
+</div>
+</div>
+</div>
+<div class="container card rounded-4 p-3">
 <table>
   <thead>
     <tr>
@@ -23,7 +34,7 @@ const table =`
       <td><i class="fa fa-pencil-square-o"></i></td>
       <td><i class="fa fa-trash-o"></i>
 </td>
-      <td><button class="edit_btn">View</button></td>
+      <td><button class="btn_color">View</button></td>
       </tr>
     <tr>
       <td>1</td>
@@ -34,7 +45,7 @@ const table =`
       <td><i class="fa fa-pencil-square-o"></i></td>
       <td><i class="fa fa-trash-o"></i>
 </td>
-      <td><button class="edit_btn">View</button></td>
+      <td><button class="btn_color">View</button></td>
       </tr>
     <tr>
       <td scope="row">1</td>
@@ -45,9 +56,10 @@ const table =`
       <td><i class="fa fa-pencil-square-o"></i></td>
       <td><i class="fa fa-trash-o"></i>
 </td>
-      <td><button class="edit_btn">View</button></td>
+      <td><button class="btn_color">View</button></td>
       </tr>
   </tbody>
 </table>
+</div>
 </div>
 `

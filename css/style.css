@@ -23,7 +23,7 @@ button{
     font-size: 28px;
     color: black;
 }
-.edit_btn{
+.btn_color{
     background-color: var(--btncolor);
     color: var(--textcolor);
 }
