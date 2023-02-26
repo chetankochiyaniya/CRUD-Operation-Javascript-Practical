@@ -6,32 +6,38 @@
 body{
     background-color: var(--bgcolor);
 }
-@media (max-width:576px){
-    .card{
-        max-width: 90% !important;
-    }
-}
-h1{
-    justify-content: center;
-}
 button{
     border: none;
     border-radius: 15px;
     padding: 5px 10px;
 }
-.fa{
-    font-size: 28px;
-    color: black;
-}
 .btn_color{
     background-color: var(--btncolor);
     color: var(--textcolor);
 }
-th, td{
-padding: 10px;
+
+.bi-arrow-down-up{
+    color: black;  
 }
-@media(max-width:576px){
-    .xsm{
-        margin-right: 20px !important;
-    }
+
+.viewProductSection {
+    height: 70vh;
+}
+
+/* Hide the spin button in priceInput */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#viewImage {
+    height: 30%;
+    display: flex;
+    justify-content: center;
+}
+
+.fa{
+    font-size: 28px;
+    color: black;
 }
