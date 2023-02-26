@@ -30,3 +30,8 @@ button{
 th, td{
 padding: 10px;
 }
+@media(max-width:576px){
+    .xsm{
+        margin-right: 20px !important;
+    }
+}

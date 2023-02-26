@@ -1,16 +1,27 @@
 const table =`
 <div class="table-responsive">
-<div class="container card rounded-4 p-3 mb-3">
+<div class="container rounded-4 p-3 mb-3">
 <div class="row d-flex">
-<div class="col-lg-6">
-<input type="text" placeholder="serch box"> 
-</div>
 <div class="d-flex col-lg-6 justify-content-end">
 <button class="btn_color"> Add new Product</button>
 </div>
 </div>
 </div>
 <div class="container card rounded-4 p-3">
+<div class="d-flex">
+Search :  
+<div class="form-group col-md-6 mb-3">
+  <input
+  class="input-group form-control"
+  type="text"
+  name=""
+  id="myInput"
+  placeholder="Please Enter your Product Name"
+  onkeyup="searchFun()"
+  style="color: black"
+/>
+</div>
+</div>
 <table>
   <thead>
     <tr>
@@ -19,10 +30,6 @@ const table =`
       <th scope="col">Image</th>
       <th scope="col">Price</th>
       <th scope="col">Description</th>
-      <th scope="col">Edit</th>
-      <th scope="col">Delete</th>
-      <th scope="col">View</th>
-    </tr>
   </thead>
   <tbody class="table-group-divider">
     <tr>
