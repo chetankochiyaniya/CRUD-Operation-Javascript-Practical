@@ -189,10 +189,10 @@ const filterData = () => {
     const filter = input.value.toUpperCase();
     if(n.includes(filter.charAt(0))){
       const tr = table.querySelectorAll("tr");
-      for (i = 0; i < tr.length; i++) {
-          td = tr[i].querySelectorAll("td")[0];
+      for (let i = 0; i < tr.length; i++) {
+         let td = tr[i].querySelectorAll("td")[0];
           if (td) {
-              txtValue = td.textContent || td.innerText;
+            let  txtValue = td.textContent || td.innerText;
               if (txtValue.toUpperCase().indexOf(filter) > -1) {
                   tr[i].style.display = "";
               } else {
@@ -203,10 +203,10 @@ const filterData = () => {
     }
     else{
       const tr = table.querySelectorAll("tr");
-    for (i = 0; i < tr.length; i++) {
-        td = tr[i].querySelectorAll("td")[1];
+    for (let i = 0; i < tr.length; i++) {
+       let td = tr[i].querySelectorAll("td")[1];
         if (td) {
-            txtValue = td.textContent || td.innerText;
+           let txtValue = td.textContent || td.innerText;
             if (txtValue.toUpperCase().indexOf(filter) > -1) {
                 tr[i].style.display = "";
             } else {
