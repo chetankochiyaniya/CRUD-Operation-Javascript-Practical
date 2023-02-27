@@ -65,6 +65,10 @@ input::-webkit-inner-spin-button {
     font-size: 28px;
     color: black;
 }
+.fa-inr{
+    font-size: 18px !important;
+    color: black;
+}
 .fa-change{
     font-size: 24px !important;
     color: white !important;

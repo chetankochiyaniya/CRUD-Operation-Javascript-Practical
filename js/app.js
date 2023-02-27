@@ -76,6 +76,7 @@ const addProduct = () => {
 }
 
 function deleteProduct(index) {
+    console.log("de",index)
     if (confirm('Are you sure you want to delete?')) {
         productDetails.splice(index, 1);
         localStorage.setItem('addProduct', JSON.stringify(productDetails));
@@ -123,6 +124,17 @@ function updateData(index) {
     document.querySelector('#closeBtn').click();
 }
 
+function view_product(index) {
+    localStorage.setItem('ind',index)
+    onNavigate("#view");
+    document.getElementById('vId').innerHTML = index + 1;
+    document.getElementById('vName').innerHTML = productDetails[index].pName;
+    document.getElementById('vDescription').innerHTML = productDetails[index].pDescription;
+    document.getElementById('vPrice').innerHTML = productDetails[index].pPrice;
+    document.getElementById('vImage').innerHTML = `
+    <img src="${productDetails[index].pImage}" class="img img-fluid"></img>`;
+    console.log("view",index)
+}
 
 let productData = document.getElementById('productData');
 let checkProduct = document.getElementById('checkProduct')
@@ -154,6 +166,9 @@ function getProduct() {
                 <button type="button" class="btn delBtn" onclick="deleteProduct(${index})">
                 <i class="fa fa-trash-o"></i>
                 </button>
+            </td>
+            <td>
+            <button class="btn_color d-flex" onclick="view_product(${index})">View</button>
             </td>
         </tr>`
     });
@@ -258,5 +273,8 @@ function sortData(column) {
         }
     }
 
+}
+function test(){
+    window.history.back()
 }
 getProduct();
