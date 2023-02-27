@@ -126,7 +126,6 @@ function updateData(index) {
 
 function view_product(index) {
     localStorage.setItem('ind',index)
-    onNavigate("#view");
     document.getElementById('vId').innerHTML = index + 1;
     document.getElementById('vName').innerHTML = productDetails[index].pName;
     document.getElementById('vDescription').innerHTML = productDetails[index].pDescription;
@@ -168,7 +167,7 @@ function getProduct() {
                 </button>
             </td>
             <td>
-            <button class="btn_color d-flex" onclick="view_product(${index})">View</button>
+            <button class="btn_color d-flex"  data-bs-toggle="modal" data-bs-target="#vProduct" onclick="view_product(${index})">View</button>
             </td>
         </tr>`
     });
@@ -273,8 +272,5 @@ function sortData(column) {
         }
     }
 
-}
-function test(){
-    window.history.back()
 }
 getProduct();
