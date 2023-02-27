@@ -7,19 +7,20 @@ const home = `
       </div>
     </div>
   </div>
-  <div class="container card rounded-4 p-3">
+  <div class="container card rounded-4 p-3 mb-5">
     <div class="table-responsive">
       <div class="row">
         <div class="col-md-6 col-sm-6 col-lg-6">
-        <h4>Product List </h4>
-        <!--  <label>Show &nbsp;</label>
+        <!--<h4>Product List </h4>-->
+          <label>Show &nbsp;</label>
           <select id="pageSize">
+            <option value="0">n</option>
             <option value="5">5</option>
             <option value="10">10</option>
             <option value="20">20</option>
             <option value="50">50</option>
           </select>
-          <label> &nbsp;Entries</label> -->
+          <label> &nbsp;Entries</label> 
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6 d-inline-flex justify-content-end jcs">
           <div class="form-group d-inline-flex align-items-center">

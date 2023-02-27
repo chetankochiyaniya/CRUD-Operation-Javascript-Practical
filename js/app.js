@@ -10,6 +10,13 @@ if (localStorage.getItem('addProduct') != null) {
     productDetails = JSON.parse(localStorage.getItem('addProduct'));
 }
 
+const numOfRaw = document.getElementById('pageSize')
+let num = 0;
+numOfRaw.addEventListener('change',()=>{
+    console.log("page",numOfRaw.options[numOfRaw.selectedIndex].value)
+    num = numOfRaw.options[numOfRaw.selectedIndex].value
+    getProduct();
+})
 
 const addProduct = () => {
     const pName = inputName.value;
@@ -127,7 +134,11 @@ function getProduct() {
       checkProduct.innerHTML = ""
     }
     productDetails.forEach((data, index) => {
-        productData.innerHTML += `
+        if(num!=0 && index+1>num){
+            console.log("num",num,index+1)
+            return productDetails.innerHTML
+        }
+            productData.innerHTML += `
         <tr>
             <td scope="row">${index + 1}</td>
             <td class="nameCol">${data.pName}</td>
