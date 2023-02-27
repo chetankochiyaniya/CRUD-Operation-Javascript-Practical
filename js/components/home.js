@@ -3,7 +3,7 @@ const home = `
 <div class="container rounded-4 p-2 px-lg-0 px-sm-2 px-md-1">
     <div class="row d-flex">
       <div class="d-flex justify-content-end">
-        <button class="btn_color p-lg-2 p-md-2 p-sm-2 xsm" data-bs-toggle="modal" data-bs-target="#productAdd"> Add new Product</button>
+        <button class="btn_color p-lg-2 p-md-2 p-sm-2 xsm d-flex" data-bs-toggle="modal" data-bs-target="#productAdd"><i class="fa fa-plus fa-change" aria-hidden="true"></i>&nbsp; Add new Product</button>
       </div>
     </div>
   </div>
@@ -62,10 +62,10 @@ const home = `
                             <th scope="col" width="10%"></th>
                         </tr>
                     </thead>
-                    <tbody id="productData">
+                    <tbody id="productData" class="table-group-divider ">
                     </tbody>
                 </table>
-                <h5 class="d-flex justify-content-center" id="checkProduct"></h5>
+                <p class="d-flex justify-content-center" id="checkProduct"></p>
     </div>
     <div class="modal fade" id="productAdd" tabindex="-1" aria-labelledby="updateProduct" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
