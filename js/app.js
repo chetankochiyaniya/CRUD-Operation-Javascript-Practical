@@ -234,6 +234,9 @@ function debounceFunc(fn, delay) {
 }
 
 
+// searching 
+const searchProduct = debounceFunc(filterData, 800);
+
 //sorting the data
 function sortData(column) {
     var rows, switching, i, row1, row2, shouldSwitch, dir, switchcount = 0;
