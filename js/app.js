@@ -21,6 +21,8 @@ if (localStorage.getItem('addProduct') != null) {
 }
 
 // number of raw show in table 
+const numOfRaw = document.getElementById('pageSize')
+let num = 0;
 numOfRaw.addEventListener('change',()=>{
     num = numOfRaw.options[numOfRaw.selectedIndex].value
     getProduct();
@@ -83,7 +85,6 @@ const addProduct = () => {
     document.querySelector('#close').click();
 }
 
-
 //delete product
 function deleteProduct(index) {
     if (confirm('Are you sure you want to delete?')) {
@@ -94,7 +95,6 @@ function deleteProduct(index) {
         return;
     }
 }
-
 
 // set edit product data
 function productInfo(index) {
@@ -137,7 +137,6 @@ function updateData(index) {
     document.querySelector('#closeBtn').click();
 }
 
-
 //view product data
 function view_product(index) {
     localStorage.setItem('ind',index)
@@ -149,6 +148,8 @@ function view_product(index) {
     <img src="${productDetails[index].pImage}" class="img img-fluid"></img>`;
 }
 
+let productData = document.getElementById('productData');
+let checkProduct = document.getElementById('checkProduct');
 
 // get product whole data
 function getProduct() {
@@ -185,6 +186,9 @@ function getProduct() {
         </tr>`
     });
 }
+
+const table = document.getElementById("displayTable");
+const n = ['1','2','3','4','5','6','7','8','9','0']
 
 // filter data
 const filterData = () => {
@@ -232,7 +236,6 @@ function debounceFunc(fn, delay) {
     }
 
 }
-
 
 // searching 
 const searchProduct = debounceFunc(filterData, 800);
@@ -291,5 +294,6 @@ function sortData(column) {
     }
 
 }
+
 // to set data in dat table when site is loaded
 getProduct();
