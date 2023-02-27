@@ -1,6 +1,6 @@
+// variable declaration
 const productAdded = document.getElementById('submitBtn');
 let productDetails = [];
-
 const inputName = document.getElementById('inputName');
 const inputDescription = document.getElementById('inputDescription');
 const inputPrice = document.getElementById('inputPrice');
@@ -10,14 +10,15 @@ if (localStorage.getItem('addProduct') != null) {
     productDetails = JSON.parse(localStorage.getItem('addProduct'));
 }
 
+// number of raw show in table
 const numOfRaw = document.getElementById('pageSize')
 let num = 0;
 numOfRaw.addEventListener('change',()=>{
-    console.log("page",numOfRaw.options[numOfRaw.selectedIndex].value)
     num = numOfRaw.options[numOfRaw.selectedIndex].value
     getProduct();
 })
 
+//add product
 const addProduct = () => {
     const pName = inputName.value;
     const pDescription = inputDescription.value;
@@ -43,7 +44,6 @@ const addProduct = () => {
     const reader = new FileReader();
     const size =
         (pImage.files[0].size / 1024 / 1024).toFixed(2);
-    //console.log(size);
     if (size > 0.5) {
         alert('Image size should be less than 500kb');
         return;
@@ -75,8 +75,8 @@ const addProduct = () => {
     document.querySelector('#close').click();
 }
 
+//delete product
 function deleteProduct(index) {
-    console.log("de",index)
     if (confirm('Are you sure you want to delete?')) {
         productDetails.splice(index, 1);
         localStorage.setItem('addProduct', JSON.stringify(productDetails));
@@ -86,6 +86,7 @@ function deleteProduct(index) {
     }
 }
 
+// set edit product data
 function productInfo(index) {
     document.getElementById('updateName').value = productDetails[index].pName;
     document.getElementById('updateDescription').value = productDetails[index].pDescription;
@@ -96,6 +97,8 @@ function productInfo(index) {
         updateData(index);
     }
 }
+
+// edit product
 function updateData(index) {
     const pName = document.getElementById('updateName').value;
     const pDescription = document.getElementById('updateDescription').value;
@@ -124,6 +127,7 @@ function updateData(index) {
     document.querySelector('#closeBtn').click();
 }
 
+//view product data
 function view_product(index) {
     localStorage.setItem('ind',index)
     document.getElementById('vId').innerHTML = index + 1;
@@ -132,9 +136,9 @@ function view_product(index) {
     document.getElementById('vPrice').innerHTML = productDetails[index].pPrice;
     document.getElementById('vImage').innerHTML = `
     <img src="${productDetails[index].pImage}" class="img img-fluid"></img>`;
-    console.log("view",index)
 }
 
+// get product whole data
 let productData = document.getElementById('productData');
 let checkProduct = document.getElementById('checkProduct')
 function getProduct() {
@@ -146,7 +150,6 @@ function getProduct() {
     }
     productDetails.forEach((data, index) => {
         if(num!=0 && index+1>num){
-            console.log("num",num,index+1)
             return productDetails.innerHTML
         }
             productData.innerHTML += `
@@ -172,8 +175,11 @@ function getProduct() {
         </tr>`
     });
 }
+
 const table = document.getElementById("displayTable");
-const n = ['1','2','3','4','5','6','7','8','9','0']
+const n = ['1','2','3','4','5','6','7','8','9','0'];
+
+// filter data
 const filterData = () => {
     const input = document.getElementById("sortInput");
     const filter = input.value.toUpperCase();
@@ -208,6 +214,7 @@ const filterData = () => {
     
 }
 
+// debounce function implementation
 function debounceFunc(fn, delay) {
     let timer;
     return function () {
@@ -218,8 +225,11 @@ function debounceFunc(fn, delay) {
     }
 
 }
+
+// searching 
 const searchProduct = debounceFunc(filterData, 800);
 
+//sorting the data
 function sortData(column) {
     var rows, switching, i, row1, row2, shouldSwitch, dir, switchcount = 0;
 
@@ -273,4 +283,6 @@ function sortData(column) {
     }
 
 }
+
+// to set data in table
 getProduct();
