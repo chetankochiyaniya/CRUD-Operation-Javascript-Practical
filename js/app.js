@@ -7,14 +7,6 @@ const inputName = document.getElementById('inputName');
 const inputDescription = document.getElementById('inputDescription');
 const inputPrice = document.getElementById('inputPrice');
 const inputImage = document.getElementById('inputImage');
-const numOfRaw = document.getElementById('pageSize')
-let num = 0;
-let productData = document.getElementById('productData');
-let checkProduct = document.getElementById('checkProduct')
-const table = document.getElementById("displayTable");
-const n = ['1','2','3','4','5','6','7','8','9','0']
-
-
 
 if (localStorage.getItem('addProduct') != null) {
     productDetails = JSON.parse(localStorage.getItem('addProduct'));
