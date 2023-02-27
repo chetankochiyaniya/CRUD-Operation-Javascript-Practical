@@ -6,6 +6,22 @@
 body{
     background-color: var(--bgcolor);
 }
+
+@media (min-width: 992px){
+    .table-responsive{
+        overflow-x: hidden !important;
+    }
+}
+@media (max-width:576px){
+    .jcs{
+        justify-content: start !important;
+    }
+}
+@media (max-width:768px){
+    .bi-arrow-down-up{
+        display: none !important;
+    }
+}
 button{
     border: none;
     border-radius: 15px;

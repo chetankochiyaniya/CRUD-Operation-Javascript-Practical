@@ -36,7 +36,7 @@ const addProduct = () => {
     const reader = new FileReader();
     const size =
         (pImage.files[0].size / 1024 / 1024).toFixed(2);
-    console.log(size);
+    //console.log(size);
     if (size > 0.5) {
         alert('Image size should be less than 500kb');
         return;
@@ -54,6 +54,7 @@ const addProduct = () => {
 
         try {
             localStorage.setItem('addProduct', JSON.stringify(productDetails));
+            getProduct();
         }
         catch (err) {
             alert("Storage full!! Please remove some products from your List.");
@@ -117,9 +118,14 @@ function updateData(index) {
 
 
 let productData = document.getElementById('productData');
-
+let checkProduct = document.getElementById('checkProduct')
 function getProduct() {
     productData.innerHTML = "";
+    if(productDetails.length == 0){
+      checkProduct.innerHTML = "Records not available"
+    }else{
+      checkProduct.innerHTML = ""
+    }
     productDetails.forEach((data, index) => {
         productData.innerHTML += `
         <tr>
@@ -132,6 +138,8 @@ function getProduct() {
                  <button  type="button" class="btn editBtn"  data-bs-toggle="modal" data-bs-target="#productView"  data-bs-whatever="update" onclick="productInfo(${index})">
                  <i class="fa fa-pencil-square-o"></i>
                 </button>
+            </td>
+            <td class="btnCol">
                 <button type="button" class="btn delBtn" onclick="deleteProduct(${index})">
                 <i class="fa fa-trash-o"></i>
                 </button>
@@ -139,13 +147,27 @@ function getProduct() {
         </tr>`
     });
 }
-
 const table = document.getElementById("displayTable");
+const n = ['1','2','3','4','5','6','7','8','9','0']
 const filterData = () => {
     const input = document.getElementById("sortInput");
     const filter = input.value.toUpperCase();
-    const tr = table.querySelectorAll("tr");
-
+    if(n.includes(filter.charAt(0))){
+      const tr = table.querySelectorAll("tr");
+      for (i = 0; i < tr.length; i++) {
+          td = tr[i].querySelectorAll("td")[0];
+          if (td) {
+              txtValue = td.textContent || td.innerText;
+              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  tr[i].style.display = "";
+              } else {
+                  tr[i].style.display = "none";
+              }
+          }
+      }
+    }
+    else{
+      const tr = table.querySelectorAll("tr");
     for (i = 0; i < tr.length; i++) {
         td = tr[i].querySelectorAll("td")[1];
         if (td) {
@@ -157,6 +179,8 @@ const filterData = () => {
             }
         }
     }
+    }
+    
 }
 
 function debounceFunc(fn, delay) {

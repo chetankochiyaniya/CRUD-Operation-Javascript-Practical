@@ -21,12 +21,12 @@ const home = `
           </select>
           <label> &nbsp;Entries</label> -->
         </div>
-        <div class="col-lg-6 col-md-6 col-sm-6 d-inline-flex justify-content-end">
+        <div class="col-lg-6 col-md-6 col-sm-6 d-inline-flex justify-content-end jcs">
           <div class="form-group d-inline-flex align-items-center">
             <label class="d-inline-flex align-items-center">Search:
               <pre> </pre>
             </label>
-            <input class="input-group form-control" type="text" placeholder="Search Here ..."
+            <input class="input-group form-control" type="text" placeholder="Search by id or name..."
               id="sortInput" onkeyup="searchProduct()" style="color: black" />
           </div>
         </div>
@@ -34,7 +34,7 @@ const home = `
       <table id="displayTable" class="table table-responsive table-hover">
                     <thead>
                         <tr>
-                            <th scope="col" onclick="sortData(0)" width="5%">Id <svg
+                            <th scope="col" onclick="sortData(0)" width="10%">Id <svg
                                 xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-arrow-down-up" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd"
@@ -49,7 +49,7 @@ const home = `
                             </svg>
                             </th>
                             <th scope="col" width="30%">Description</th>
-                            <th scope="col" onclick="sortData(3)" width="10%">Price <svg
+                            <th scope="col" onclick="sortData(3)" width="25%">Price <svg
                                 xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-arrow-down-up" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd"
@@ -58,18 +58,20 @@ const home = `
                             </th>
                             <th scope="col" width="25%">Image</th>
                             <th scope="col" width="10%"></th>
+                            <th scope="col" width="10%"></th>
                         </tr>
                     </thead>
                     <tbody id="productData">
-
                     </tbody>
                 </table>
+                <h5 class="d-flex justify-content-center" id="checkProduct"></h5>
     </div>
     <div class="modal fade" id="productAdd" tabindex="-1" aria-labelledby="updateProduct" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="updateProduct">Product Information</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form id="addProductForm">
