@@ -140,6 +140,7 @@ function view_product(index) {
     <img src="${productDetails[index].pImage}" class="img img-fluid"></img>`;
 }
 
+// get product whole data
 let productData = document.getElementById('productData');
 let checkProduct = document.getElementById('checkProduct');
 
@@ -287,5 +288,5 @@ function sortData(column) {
 
 }
 
-// to set data in dat table when site is loaded
+// to set data in table
 getProduct();
